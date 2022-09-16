@@ -13,6 +13,7 @@
 		F65AC04828D44A6400ECC7BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F65AC04628D44A6400ECC7BD /* Main.storyboard */; };
 		F65AC04A28D44A6500ECC7BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F65AC04928D44A6500ECC7BD /* Assets.xcassets */; };
 		F65AC04D28D44A6500ECC7BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F65AC04B28D44A6500ECC7BD /* LaunchScreen.storyboard */; };
+		F65AC05528D44C8700ECC7BD /* StampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65AC05428D44C8700ECC7BD /* StampViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F65AC04928D44A6500ECC7BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F65AC04C28D44A6500ECC7BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F65AC04E28D44A6500ECC7BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F65AC05428D44C8700ECC7BD /* StampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				F65AC04028D44A6400ECC7BD /* AppDelegate.swift */,
 				F65AC04228D44A6400ECC7BD /* SceneDelegate.swift */,
 				F65AC04428D44A6400ECC7BD /* ViewController.swift */,
+				F65AC05428D44C8700ECC7BD /* StampViewController.swift */,
 				F65AC04628D44A6400ECC7BD /* Main.storyboard */,
 				F65AC04928D44A6500ECC7BD /* Assets.xcassets */,
 				F65AC04B28D44A6500ECC7BD /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65AC05528D44C8700ECC7BD /* StampViewController.swift in Sources */,
 				F65AC04528D44A6400ECC7BD /* ViewController.swift in Sources */,
 				F65AC04128D44A6400ECC7BD /* AppDelegate.swift in Sources */,
 				F65AC04328D44A6400ECC7BD /* SceneDelegate.swift in Sources */,
