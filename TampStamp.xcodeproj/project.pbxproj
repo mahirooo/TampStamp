@@ -16,6 +16,8 @@
 		F65AC05528D44C8700ECC7BD /* StampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65AC05428D44C8700ECC7BD /* StampViewController.swift */; };
 		F65AC06028D479F100ECC7BD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65AC05E28D479F100ECC7BD /* CollectionViewCell.swift */; };
 		F65AC06128D479F100ECC7BD /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F65AC05F28D479F100ECC7BD /* CollectionViewCell.xib */; };
+		F65AC06328D75B4300ECC7BD /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65AC06228D75B4300ECC7BD /* PushViewController.swift */; };
+		F65AC06528D75F5100ECC7BD /* PushCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65AC06428D75F5100ECC7BD /* PushCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		F65AC05428D44C8700ECC7BD /* StampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StampViewController.swift; sourceTree = "<group>"; };
 		F65AC05E28D479F100ECC7BD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		F65AC05F28D479F100ECC7BD /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		F65AC06228D75B4300ECC7BD /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
+		F65AC06428D75F5100ECC7BD /* PushCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				F65AC04E28D44A6500ECC7BD /* Info.plist */,
 				F65AC05E28D479F100ECC7BD /* CollectionViewCell.swift */,
 				F65AC05F28D479F100ECC7BD /* CollectionViewCell.xib */,
+				F65AC06228D75B4300ECC7BD /* PushViewController.swift */,
+				F65AC06428D75F5100ECC7BD /* PushCollectionViewCell.swift */,
 			);
 			path = TampStamp;
 			sourceTree = "<group>";
@@ -150,8 +156,10 @@
 			files = (
 				F65AC06028D479F100ECC7BD /* CollectionViewCell.swift in Sources */,
 				F65AC05528D44C8700ECC7BD /* StampViewController.swift in Sources */,
+				F65AC06328D75B4300ECC7BD /* PushViewController.swift in Sources */,
 				F65AC04528D44A6400ECC7BD /* ViewController.swift in Sources */,
 				F65AC04128D44A6400ECC7BD /* AppDelegate.swift in Sources */,
+				F65AC06528D75F5100ECC7BD /* PushCollectionViewCell.swift in Sources */,
 				F65AC04328D44A6400ECC7BD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
