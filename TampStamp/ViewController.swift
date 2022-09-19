@@ -18,9 +18,9 @@ class ViewController: UIViewController {
     var cellOffset: CGFloat!
     var navHeight: CGFloat!
 
-    var photoArray = ["cardDesignBlue","cardDesignPink1","cardDesignPink2"]
-    var rewardArray = ["フラペチーノ","スプラ","焼肉"]
-    var todoArray = ["腹筋100回","毎日自炊","お風呂掃除"]
+    var photoArray = ["cardDesignBlue","cardDesignPink1","cardDesignPink2","cardDesignBlue","cardDesignPink1","cardDesignPink2"]
+    var rewardArray = ["フラペチーノ","スプラ","焼肉","フラペチーノ","スプラ","焼肉"]
+    var todoArray = ["腹筋100回","毎日自炊","お風呂掃除","腹筋100回","毎日自炊","お風呂掃除"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,33 +57,24 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
 
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
      
             // セルの選択を解除
         collectionView.cellForItem(at: indexPath)
      
             // 別の画面に遷移
             performSegue(withIdentifier: "toNextViewController", sender: nil)
+        print("選択しました: \(indexPath.row)")
         }
-    
-//    func collectionView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: false)
-//
-//        //　タップされたセルの取得
-//        let cell = self.tableView.cellForItem(at:indexPath)
-//
-//        // セルの背景色を変更する
-//
-//      }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 50
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        cellWidth = viewWidth/0.8
-//        cellHeight = viewHeight-690
-//        return CGSize(width: cellWidth, height: cellHeight)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        cellWidth = viewWidth/1.1
+        cellHeight = viewHeight-690
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
 
 }
 
