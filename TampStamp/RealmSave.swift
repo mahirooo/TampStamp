@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 class Save: Object {
+    @objc dynamic var card: String = ""
     @objc dynamic var todo: String = ""
     @objc dynamic var reward: String = ""
     @objc dynamic var date: String = ""

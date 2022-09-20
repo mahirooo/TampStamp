@@ -8,14 +8,17 @@
 import UIKit
 
 class PushViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
-    var stampArray = [String]()
     var stampNumber = 0
-    let imageName = ["stampBlue"]
-    @IBOutlet var stampImage: UIImageView!
+    var stampImage = [String]()
+    
+    @IBOutlet var StampCollectionView: UICollectionView!
     
 
     override func viewDidLoad() {
             super.viewDidLoad()
+        
+        StampCollectionView.delegate = self
+        StampCollectionView.dataSource = self
         // ロングプレス
                 let longPressGesture =
                     UILongPressGestureRecognizer(target: self,
@@ -30,23 +33,41 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
     @objc func longPress(_ sender: UILongPressGestureRecognizer){
                if sender.state == .began {
                    // 開始は認知される
-                   stampArray += ["stampBlue"]
+                   stampImage += ["stampBlue"]
+                   StampCollectionView.reloadData()
                    
-                   print(stampArray)
+                   print(stampImage)
                }
                else if sender.state == .ended {
             }
         }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        cell.backgroundColor = .blue
-//        cell.backgroundImageView.image = UIImage(named: imageName[indexPath.row])
+        let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        
+        let imageView = cell.contentView.viewWithTag(1) as! UIImageView
+                
+                // 画像配列の番号で指定された要素の名前の画像をUIImageとする
+                let cellImage = UIImage(named: stampImage[indexPath.row])
+                // UIImageをUIImageViewのimageとして設定
+                imageView.image = cellImage
+        
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        // 横方向のスペース調整
+        let horizontalSpace:CGFloat = 5
+
+        //セルのサイズを指定。画面上にセルを3つ表示させたいのであれば、デバイスの横幅を3分割した横幅　- セル間のスペース*2（セル間のスペースが二つあるため）
+        let cellSize:CGFloat = self.view.bounds.width/3 - horizontalSpace*2
+
+        // 正方形で返すためにwidth,heightを同じにする
+        return CGSize(width: cellSize, height: cellSize)
     }
     
     

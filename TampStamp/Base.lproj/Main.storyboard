@@ -78,14 +78,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="gfb-OD-cnp" customClass="PushCollectionViewCell" customModule="TampStamp" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="center" reuseIdentifier="Cell" id="gfb-OD-cnp" customClass="PushCollectionViewCell" customModule="TampStamp" customModuleProvider="target">
                                         <rect key="frame" x="56" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6ND-UV-AEj">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="stampBlue" translatesAutoresizingMaskIntoConstraints="NO" id="LlY-1K-a8X">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0na-pW-Opf">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -105,6 +105,9 @@
                         <viewLayoutGuide key="safeArea" id="wo8-io-ElS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="StampCollectionView" destination="aNx-bM-STI" id="K8A-X1-Gq6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iNb-ck-rnG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -232,18 +235,19 @@
                                     <action selector="tugi" destination="7J6-ch-dV4" eventType="touchUpInside" id="g4h-v4-yFD"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bha-97-kJ0">
-                                <rect key="frame" x="49" y="572" width="302" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xua-Ae-Uwy">
                                 <rect key="frame" x="119" y="703" width="177" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="カードを作成する"/>
+                                <connections>
+                                    <action selector="make" destination="7J6-ch-dV4" eventType="touchUpInside" id="lVv-bG-5Z2"/>
+                                </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8d-ET-Uwc">
+                                <rect key="frame" x="49" y="556" width="302" height="67"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k7h-o2-cOc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -254,7 +258,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="cardDesign" destination="xeh-b0-SyM" id="ECn-QR-Isf"/>
-                        <outlet property="dateTextField" destination="bha-97-kJ0" id="PoO-jg-fmM"/>
+                        <outlet property="datePickerView" destination="L8d-ET-Uwc" id="qT4-cC-9ly"/>
                         <outlet property="rewardTextField" destination="DSz-89-65Z" id="r2p-Yr-Rag"/>
                         <outlet property="todoTextField" destination="AuD-rD-yiR" id="lgU-O7-2qy"/>
                     </connections>
@@ -288,7 +292,6 @@
     <resources>
         <image name="checkmark.seal.fill" catalog="system" width="128" height="128"/>
         <image name="heart.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="stampBlue" width="224" height="224"/>
         <image name="tabbigbutton" width="99" height="99"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
