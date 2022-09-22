@@ -17,7 +17,7 @@ class StampViewController: UIViewController, UITextFieldDelegate, UIPickerViewDe
     @IBOutlet var datePickerView: UIPickerView!
     
     
-    let imageName = ["selectBlue","slectPink1","selectPink2"]
+    let imageName = ["selectBlue","selectPink1","selectPink2"]
     var dateArray: [String] = ["5日間","10日間"]
     var cardImageArray = [String]()
     var index = 0
@@ -30,7 +30,6 @@ class StampViewController: UIViewController, UITextFieldDelegate, UIPickerViewDe
         
         todoTextField.delegate = self
         rewardTextField.delegate = self
-        datePickerView.delegate = self
         
         let save: Save? = read()
 

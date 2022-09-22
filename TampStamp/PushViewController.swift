@@ -9,14 +9,20 @@ import UIKit
 
 class PushViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     var stampNumber = 0
-    var stampImage = [String]()
+    var stampImage = ["", "", "", "", "", "", "", "",]
+    var todo = String()
+    var reward = String()
+    var card = String()
     
     @IBOutlet var StampCollectionView: UICollectionView!
-    
+    @IBOutlet var todoLabel: UILabel!
+    @IBOutlet var rewardLabel: UILabel!
+    @IBOutlet var backgroundImageView: UIImageView!
 
     override func viewDidLoad() {
             super.viewDidLoad()
-        
+        print(todoLabel.text)
+        print(rewardLabel.text)
         StampCollectionView.delegate = self
         StampCollectionView.dataSource = self
         // ロングプレス
@@ -35,7 +41,6 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                    // 開始は認知される
                    stampImage += ["stampBlue"]
                    StampCollectionView.reloadData()
-                   
                    print(stampImage)
                }
                else if sender.state == .ended {
@@ -43,19 +48,17 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 7
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        
-        let imageView = cell.contentView.viewWithTag(1) as! UIImageView
-                
-                // 画像配列の番号で指定された要素の名前の画像をUIImageとする
-                let cellImage = UIImage(named: stampImage[indexPath.row])
-                // UIImageをUIImageViewのimageとして設定
-                imageView.image = cellImage
-        
+        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
+
+//        
+//        let imagecell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PushCollectionViewCell
+//        imagecell.imageView.image = UIImage(named: "stampBlue")
+//        
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
