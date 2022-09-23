@@ -9,7 +9,7 @@ import UIKit
 
 class PushViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     var stampNumber = 0
-    var stampImage = ["", "", "", "", "", "", "", "",]
+    var stampImage = ["","","","","","",""]
     var todo = String()
     var reward = String()
     var card = String()
@@ -23,10 +23,6 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
             super.viewDidLoad()
         StampCollectionView.delegate = self
         StampCollectionView.dataSource = self
-        
-        print(todo)
-        print(reward)
-        
         rewardLabel.text = "ご褒美：\(reward)"
         todoLabel.text = "目標：\(todo)"
         backgroundImageView.image = UIImage(named: card)
@@ -48,7 +44,6 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                    // 開始は認知される
                    stampImage += ["stampBlue"]
                    StampCollectionView.reloadData()
-                   print(stampImage)
                }
                else if sender.state == .ended {
             }
@@ -60,14 +55,14 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
-
-//        
-//        let imagecell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PushCollectionViewCell
-//        imagecell.imageView.image = UIImage(named: "stampBlue")
-//        
-        return cell
+        let imageView = cell.contentView.viewWithTag(2) as! UIImageView
+        let cellImage = UIImage(named: stampImage[indexPath.row])
+                // UIImageをUIImageViewのimageとして設定
+                imageView.image = cellImage
+                return cell
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         // 横方向のスペース調整
