@@ -21,10 +21,17 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
 
     override func viewDidLoad() {
             super.viewDidLoad()
-        print(todoLabel.text)
-        print(rewardLabel.text)
         StampCollectionView.delegate = self
         StampCollectionView.dataSource = self
+        
+        print(todo)
+        print(reward)
+        
+        rewardLabel.text = "ご褒美：\(reward)"
+        todoLabel.text = "目標：\(todo)"
+        backgroundImageView.image = UIImage(named: card)
+        
+        
         // ロングプレス
                 let longPressGesture =
                     UILongPressGestureRecognizer(target: self,

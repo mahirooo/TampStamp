@@ -85,7 +85,7 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
         collectionView.cellForItem(at: indexPath)
      
             // 別の画面に遷移
-            performSegue(withIdentifier: "toNextViewController", sender: saveItem)
+            performSegue(withIdentifier: "toNextViewController", sender: saveItem[indexPath.row])
         print("選択しました: \(indexPath.row)")
         }
 
@@ -101,9 +101,10 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
             let nextVC = segue.destination as! PushViewController
-        let _ = nextVC.view
-        nextVC.todo = cell.todoLabel.text
-        nextVC.reward = cell.rewardLabel.text
+            let item = sender as! Save
+            nextVC.todo = item.todo
+            nextVC.reward = item.reward
+        nextVC.card = item.card
         }
 
 }
