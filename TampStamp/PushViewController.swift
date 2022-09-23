@@ -30,7 +30,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         rewardLabel.text = "ご褒美：\(reward)"
         todoLabel.text = "目標：\(todo)"
         backgroundImageView.image = UIImage(named: card)
-        
+        self.StampCollectionView.backgroundColor = UIColor.clear
         let stamp: Stamp? = read()
         
         // ロングプレス
