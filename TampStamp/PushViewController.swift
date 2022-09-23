@@ -6,13 +6,17 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PushViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     var stampNumber = 0
-    var stampImage = ["","","","","","",""]
+    var stampImage = [""]
     var todo = String()
     var reward = String()
     var card = String()
+    
+    let realm = try! Realm()
+    var saveStamp: Results<Stamp>!
     
     @IBOutlet var StampCollectionView: UICollectionView!
     @IBOutlet var todoLabel: UILabel!
@@ -27,6 +31,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         todoLabel.text = "目標：\(todo)"
         backgroundImageView.image = UIImage(named: card)
         
+        let stamp: Stamp? = read()
         
         // ロングプレス
                 let longPressGesture =
@@ -39,6 +44,10 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                 self.view.addGestureRecognizer(longPressGesture)
         }
     
+    func read() -> Stamp? {
+        return realm.objects(Stamp.self).first
+    }
+    
     @objc func longPress(_ sender: UILongPressGestureRecognizer){
                if sender.state == .began {
                    // 開始は認知される
@@ -50,7 +59,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return stampImage.count
     }
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -14,3 +14,8 @@ class Save: Object {
     @objc dynamic var reward: String = ""
     @objc dynamic var date: String = ""
 }
+
+
+class Stamp: Object {
+    @objc dynamic var stamp: String = ""
+}
