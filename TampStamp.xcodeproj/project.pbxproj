@@ -21,6 +21,8 @@
 		F6EB9D5928D82B8800F843D8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F6EB9D5828D82B8800F843D8 /* Realm */; };
 		F6EB9D5B28D82B8800F843D8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F6EB9D5A28D82B8800F843D8 /* RealmSwift */; };
 		F6EB9D5D28D82C6200F843D8 /* RealmSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB9D5C28D82C6200F843D8 /* RealmSave.swift */; };
+		F6EB9D6128DF440D00F843D8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB9D5F28DF440D00F843D8 /* TableViewCell.swift */; };
+		F6EB9D6228DF440D00F843D8 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EB9D6028DF440D00F843D8 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		F65AC06228D75B4300ECC7BD /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
 		F65AC06428D75F5100ECC7BD /* PushCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushCollectionViewCell.swift; sourceTree = "<group>"; };
 		F6EB9D5C28D82C6200F843D8 /* RealmSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSave.swift; sourceTree = "<group>"; };
+		F6EB9D5F28DF440D00F843D8 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		F6EB9D6028DF440D00F843D8 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				F65AC05428D44C8700ECC7BD /* StampViewController.swift */,
 				F65AC04628D44A6400ECC7BD /* Main.storyboard */,
 				F65AC04928D44A6500ECC7BD /* Assets.xcassets */,
+				F6EB9D5F28DF440D00F843D8 /* TableViewCell.swift */,
+				F6EB9D6028DF440D00F843D8 /* TableViewCell.xib */,
 				F65AC04B28D44A6500ECC7BD /* LaunchScreen.storyboard */,
 				F65AC04E28D44A6500ECC7BD /* Info.plist */,
 				F65AC05E28D479F100ECC7BD /* CollectionViewCell.swift */,
@@ -155,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F65AC04D28D44A6500ECC7BD /* LaunchScreen.storyboard in Resources */,
+				F6EB9D6228DF440D00F843D8 /* TableViewCell.xib in Resources */,
 				F65AC04A28D44A6500ECC7BD /* Assets.xcassets in Resources */,
 				F65AC06128D479F100ECC7BD /* CollectionViewCell.xib in Resources */,
 				F65AC04828D44A6400ECC7BD /* Main.storyboard in Resources */,
@@ -171,6 +178,7 @@
 				F65AC06028D479F100ECC7BD /* CollectionViewCell.swift in Sources */,
 				F65AC05528D44C8700ECC7BD /* StampViewController.swift in Sources */,
 				F6EB9D5D28D82C6200F843D8 /* RealmSave.swift in Sources */,
+				F6EB9D6128DF440D00F843D8 /* TableViewCell.swift in Sources */,
 				F65AC06328D75B4300ECC7BD /* PushViewController.swift in Sources */,
 				F65AC04528D44A6400ECC7BD /* ViewController.swift in Sources */,
 				F65AC04128D44A6400ECC7BD /* AppDelegate.swift in Sources */,

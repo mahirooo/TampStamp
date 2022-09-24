@@ -9,9 +9,11 @@ import UIKit
 import RealmSwift
 import SwiftUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
 
-    @IBOutlet var horizontalCollectionView: UICollectionView!
+    @IBOutlet var horizontalTableView: UITableView!
     
     
 
@@ -32,33 +34,31 @@ class ViewController: UIViewController {
         viewHeight = view.frame.height
         navHeight = self.navigationController?.navigationBar.frame.size.height
 
-        horizontalCollectionView.delegate = self
-        horizontalCollectionView.dataSource = self
+        horizontalTableView.delegate = self
+        horizontalTableView.dataSource = self
         UITabBar.appearance().tintColor = UIColor(red: 0.945, green: 0.356, blue: 0.411, alpha: 1.0)
-        let nib = UINib(nibName: "CollectionViewCell", bundle: .main)
-        horizontalCollectionView.register(nib, forCellWithReuseIdentifier: "cell")
+        horizontalTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "customTableView")
         let realm = try! Realm()
         self.saveItem = realm.objects(Save.self)
-        horizontalCollectionView.reloadData()
+        horizontalTableView.reloadData()
+        
+//        horizontalTableView.estimatedRowHeight = 66
+//        horizontalTableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print(Save())
-        self.horizontalCollectionView.reloadData()
+        self.horizontalTableView.reloadData()
     }
-
-}
-
-extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let userData = realm.objects(Save.self)
         
         return userData.count
-//        cellの数を決める
     }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customTableView", for: indexPath) as! TableViewCell
         let save: Save = self.saveItem[indexPath.row]
         cell.backgroundColor = UIColor.white
         cell.layer.cornerRadius = 30
@@ -67,36 +67,19 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
         cell.todoLabel.text = "目標：\(save.todo)"
         
         cell.backgroundImageView.image = UIImage(named: save.card)
-//        if cell.backgroundImageView.image == UIImage("selectBlue"){
-//            cell.rewardLabel.textColor = UIColor(red: 53/255, green: 92/255, blue: 125/255, alpha: 1.0)
-//        }else if cell.backgroundImageView.image == UIImage("selectPink1"){
-//            cell.rewardLabel.textColor = UIColor(red: 145/255, green: 81/255, blue: 99/255, alpha: 1.0)
-//        }else if cell.backgroundImageView.image == UIImage("selectPink2"){
-//            cell.rewardLabel.textColor = UIColor(red: 246/255, green: 114/255, blue: 128/255, alpha: 1.0)
-//        }
         
         return cell
-
     }
     
-    internal func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+        {
             // セルの選択を解除
-        collectionView.cellForItem(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
      
             // 別の画面に遷移
             performSegue(withIdentifier: "toNextViewController", sender: saveItem[indexPath.row])
         print("選択しました: \(indexPath.row)")
         }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 50
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        cellWidth = viewWidth/1.1
-        cellHeight = viewHeight-690
-        return CGSize(width: cellWidth, height: cellHeight)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -108,6 +91,5 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
         }
 
 }
-
 
 
