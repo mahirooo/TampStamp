@@ -52,6 +52,9 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                if sender.state == .began {
                    // 開始は認知される
                    stampImage += ["stampBlue"]
+                   if stampImage.count > 10{
+                       stampImage = ["stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue"]
+                   }
                    StampCollectionView.reloadData()
                }
                else if sender.state == .ended {
