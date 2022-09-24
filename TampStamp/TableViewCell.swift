@@ -16,7 +16,8 @@ class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+//        let customCollectionViewCellName = "CustomCollectionViewCell"
+//                collectionView.register(UINib(nibName: customCollectionViewCellName, bundle: nil), forCellWithReuseIdentifier: customCollectionViewCellName)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
