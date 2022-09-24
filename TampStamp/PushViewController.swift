@@ -10,7 +10,7 @@ import RealmSwift
 
 class PushViewController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     var stampNumber = 0
-    var stampImage = [""]
+    var stampImage:[String] = []
     var todo = String()
     var reward = String()
     var card = String()
