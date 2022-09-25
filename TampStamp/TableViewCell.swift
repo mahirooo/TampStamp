@@ -42,10 +42,6 @@ class TableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionView
     
 }
 
-extension TableViewCell: UICollectionViewDelegate {
-    
-}
-
 extension TableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
