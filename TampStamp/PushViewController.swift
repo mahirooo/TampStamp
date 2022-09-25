@@ -16,7 +16,6 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
     var card = String()
     
     let realm = try! Realm()
-    var saveStamp: Results<Stamp>!
     
     @IBOutlet var StampCollectionView: UICollectionView!
     @IBOutlet var todoLabel: UILabel!

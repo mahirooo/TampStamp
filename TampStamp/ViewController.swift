@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
 
     @IBOutlet var horizontalTableView: UITableView!
-    var cards: [Card] = []
     
 
     var viewWidth: CGFloat!
@@ -26,11 +25,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let realm = try! Realm()
     var saveItem: Results<Save>!
+    var stampCount: Results<Stamp>!
+    var stampImage:[String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cards.append(Card(id: 1, title: "test", imageUrl: "https://www.pakutaso.com/shared/img/thumb/susipaku211-app90962_TP_V.jpg"))
 
         viewWidth = view.frame.width
         viewHeight = view.frame.height
@@ -42,6 +42,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         horizontalTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "customTableView")
         let realm = try! Realm()
         self.saveItem = realm.objects(Save.self)
+        self.stampCount = realm.objects(Stamp.self)
+        print(stampCount)
         horizontalTableView.reloadData()
         
         self.horizontalTableView.rowHeight = 230;
@@ -93,27 +95,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             nextVC.reward = item.reward
         nextVC.card = item.card
         }
-    
-//    extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//            cards.count
-//        }
-//        
-//        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath as IndexPath) as! CustomCollectionViewCell
-//            cell.configure(card: cards[indexPath.row])
-//            cell.delegate = self // CustomCollectionViewCellDelegate
-//            return cell
-//        }
-//    }
-//
-//    extension ViewController: CustomCollectionViewCellDelegate {
-//        func showDetail(cell: CustomCollectionViewCell) {
-//            // collectionViewCoellのindexPathを特定するために、まずはtableViewCellを特定する。
-//            // 今回の場合は、tableViewCellは一つしかない想定なので、決め打ちでIndexPath(row: 0, section: 0)を指定。
-//            guard let tableViewCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? CustomTableViewCell, let indexPath = tableViewCell.collectionView.indexPath(for: cell) else { return }
-//            presentToDetail(card: cards[indexPath.row])
-//        }
 
 }
 

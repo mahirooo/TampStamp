@@ -23,9 +23,9 @@
 		F6EB9D5D28D82C6200F843D8 /* RealmSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB9D5C28D82C6200F843D8 /* RealmSave.swift */; };
 		F6EB9D6128DF440D00F843D8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB9D5F28DF440D00F843D8 /* TableViewCell.swift */; };
 		F6EB9D6228DF440D00F843D8 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EB9D6028DF440D00F843D8 /* TableViewCell.xib */; };
-		F6EB9D6A28DF505900F843D8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB9D6928DF505900F843D8 /* Card.swift */; };
-		F6EB9D6D28DF512200F843D8 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB9D6B28DF512200F843D8 /* CustomCollectionViewCell.swift */; };
-		F6EB9D6E28DF512200F843D8 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EB9D6C28DF512200F843D8 /* CustomCollectionViewCell.xib */; };
+		F6EB9D7128E07E8000F843D8 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB9D6F28E07E8000F843D8 /* MyCollectionViewCell.swift */; };
+		F6EB9D7228E07E8000F843D8 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6EB9D7028E07E8000F843D8 /* MyCollectionViewCell.xib */; };
+		F6EB9D7428E085D300F843D8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB9D7328E085D300F843D8 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +45,9 @@
 		F6EB9D5C28D82C6200F843D8 /* RealmSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSave.swift; sourceTree = "<group>"; };
 		F6EB9D5F28DF440D00F843D8 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F6EB9D6028DF440D00F843D8 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
-		F6EB9D6928DF505900F843D8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		F6EB9D6B28DF512200F843D8 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
-		F6EB9D6C28DF512200F843D8 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		F6EB9D6F28E07E8000F843D8 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
+		F6EB9D7028E07E8000F843D8 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		F6EB9D7328E085D300F843D8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +97,9 @@
 				F65AC06228D75B4300ECC7BD /* PushViewController.swift */,
 				F65AC06428D75F5100ECC7BD /* PushCollectionViewCell.swift */,
 				F6EB9D5C28D82C6200F843D8 /* RealmSave.swift */,
-				F6EB9D6928DF505900F843D8 /* Card.swift */,
-				F6EB9D6B28DF512200F843D8 /* CustomCollectionViewCell.swift */,
-				F6EB9D6C28DF512200F843D8 /* CustomCollectionViewCell.xib */,
+				F6EB9D6F28E07E8000F843D8 /* MyCollectionViewCell.swift */,
+				F6EB9D7028E07E8000F843D8 /* MyCollectionViewCell.xib */,
+				F6EB9D7328E085D300F843D8 /* Model.swift */,
 			);
 			path = TampStamp;
 			sourceTree = "<group>";
@@ -170,8 +170,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F65AC04D28D44A6500ECC7BD /* LaunchScreen.storyboard in Resources */,
-				F6EB9D6E28DF512200F843D8 /* CustomCollectionViewCell.xib in Resources */,
 				F6EB9D6228DF440D00F843D8 /* TableViewCell.xib in Resources */,
+				F6EB9D7228E07E8000F843D8 /* MyCollectionViewCell.xib in Resources */,
 				F65AC04A28D44A6500ECC7BD /* Assets.xcassets in Resources */,
 				F65AC06128D479F100ECC7BD /* CollectionViewCell.xib in Resources */,
 				F65AC04828D44A6400ECC7BD /* Main.storyboard in Resources */,
@@ -191,11 +191,11 @@
 				F6EB9D6128DF440D00F843D8 /* TableViewCell.swift in Sources */,
 				F65AC06328D75B4300ECC7BD /* PushViewController.swift in Sources */,
 				F65AC04528D44A6400ECC7BD /* ViewController.swift in Sources */,
+				F6EB9D7128E07E8000F843D8 /* MyCollectionViewCell.swift in Sources */,
 				F65AC04128D44A6400ECC7BD /* AppDelegate.swift in Sources */,
-				F6EB9D6A28DF505900F843D8 /* Card.swift in Sources */,
+				F6EB9D7428E085D300F843D8 /* Model.swift in Sources */,
 				F65AC06528D75F5100ECC7BD /* PushCollectionViewCell.swift in Sources */,
 				F65AC04328D44A6400ECC7BD /* SceneDelegate.swift in Sources */,
-				F6EB9D6D28DF512200F843D8 /* CustomCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
