@@ -55,6 +55,13 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                        stampImage = ["stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue"]
                    }
                    StampCollectionView.reloadData()
+                   
+                   let save = Stamp()
+                          save.stamp = stampImage
+
+                          try! realm.write {
+                              realm.add(save)
+                          }
                }
                else if sender.state == .ended {
             }

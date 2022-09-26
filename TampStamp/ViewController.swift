@@ -43,7 +43,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let realm = try! Realm()
         self.saveItem = realm.objects(Save.self)
         self.stampCount = realm.objects(Stamp.self)
-        print(stampCount)
         horizontalTableView.reloadData()
         
         self.horizontalTableView.rowHeight = 230;
@@ -54,6 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         print(Save())
+        print(Stamp())
         self.horizontalTableView.reloadData()
     }
     

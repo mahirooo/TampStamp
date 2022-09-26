@@ -90,8 +90,6 @@ class StampViewController: UIViewController, UITextFieldDelegate, UIPickerViewDe
         let todo: String = todoTextField.text!
         let reward: String = rewardTextField.text!
         let card: String = imageName[index]
-//        let date: String = dateArray[row]
-//
         let save = Save()
                save.todo = todo
                save.reward = reward

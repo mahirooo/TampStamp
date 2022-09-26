@@ -18,7 +18,6 @@ final class MyCollectionViewCell: UICollectionViewCell {
     }
     
     @IBOutlet private weak var myImageView: UIImageView!
-    @IBOutlet private weak var myLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,7 +25,6 @@ final class MyCollectionViewCell: UICollectionViewCell {
 
     func configure(with model: Model) {
         myImageView.image = UIImage(named: model.imageName)
-        myLabel.text = model.text
     }
     
 }

@@ -17,5 +17,5 @@ class Save: Object {
 
 
 class Stamp: Object {
-    @objc dynamic var stamp: String = ""
+    @objc dynamic var stamp: [String] = []
 }

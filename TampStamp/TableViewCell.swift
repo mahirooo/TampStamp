@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import RealmSwift
 
-class TableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource {
+class TableViewCell: UITableViewCell, UICollectionViewDelegate{
     
     @IBOutlet var todoLabel: UILabel!
     @IBOutlet var rewardLabel: UILabel!
     @IBOutlet var backgroundImageView: UIImageView!
-    var stampCount = ["stampBlue"]
+    var stampCount: Results<Stamp>!
+    var stampImage:[String] = []
     
     static var toString: String {
         return String(describing: self)
@@ -39,19 +41,25 @@ class TableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionView
         self.models = models
         collectionView.reloadData()
     }
+    let realm = try! Realm()
     
 }
 
 extension TableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        models.count
+        let stampData = realm.objects(Stamp.self)
+        
+        return stampData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.id, for: indexPath) as! MyCollectionViewCell
-        let model = models[indexPath.row]
-        cell.configure(with: model)
+        let imageView = cell.contentView.viewWithTag(2) as! UIImageView
+        let cellImage = UIImage(named: stampImage[indexPath.row])
+                // UIImageをUIImageViewのimageとして設定
+                imageView.image = cellImage
+                return cell
         return cell
     }
     
