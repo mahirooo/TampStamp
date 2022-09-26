@@ -15,7 +15,12 @@ class Save: Object {
     @objc dynamic var date: String = ""
 }
 
-
 class Stamp: Object {
-    @objc dynamic var stamp: [String] = []
+    @objc dynamic var stamp: String = ""
+    //Listの定義
+    let stampArray = List<>()
+}
+
+class Ticket: Object {
+    @objc dynamic var ticketTitle: String = ""
 }

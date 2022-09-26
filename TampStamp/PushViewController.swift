@@ -56,12 +56,28 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                    }
                    StampCollectionView.reloadData()
                    
-                   let save = Stamp()
-                          save.stamp = stampImage
+//                   let save = Stamp()
+//                          save.stamp = stampImage
+//
+//                          try! realm.write {
+//                              realm.add(save)
+//                          }
+                   
+                   let realm = try Realm()
+                       let dictionary: [String: Any] =
+                           ["stamps": [["ticketTitle": "算数"],
+                                        ["ticketTitle": "英語"],
+                                        ["ticketTitle": "社会"]]
+                           ]
 
-                          try! realm.write {
-                              realm.add(save)
-                          }
+                       let task = Stamp(value: dictionary) //Taskモデルのインスタンスの作成
+
+                       //書き込み処理
+                       try! realm.write {
+                           realm.add(task)
+                           print(task)
+                   
+                   
                }
                else if sender.state == .ended {
             }
