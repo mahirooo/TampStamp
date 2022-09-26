@@ -62,8 +62,6 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
 //                          try! realm.write {
 //                              realm.add(save)
 //                          }
-                   
-                   let realm = try Realm()
                        let dictionary: [String: Any] =
                            ["stamps": [["ticketTitle": "算数"],
                                         ["ticketTitle": "英語"],
@@ -78,6 +76,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                            print(task)
                    
                    
+               }
                }
                else if sender.state == .ended {
             }
@@ -122,5 +121,6 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }

@@ -18,9 +18,9 @@ class Save: Object {
 class Stamp: Object {
     @objc dynamic var stamp: String = ""
     //Listの定義
-    let stampArray = List<>()
+    let stampArray = List<StampArray>()
 }
 
-class Ticket: Object {
+class StampArray: Object {
     @objc dynamic var ticketTitle: String = ""
 }
