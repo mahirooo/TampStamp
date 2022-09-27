@@ -30,7 +30,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         todoLabel.text = "目標：\(todo)"
         backgroundImageView.image = UIImage(named: card)
         self.StampCollectionView.backgroundColor = UIColor.clear
-        let stamp: Stamp? = read()
+//        let stamp: Stamp? = read()
         
         // ロングプレス
                 let longPressGesture =
@@ -43,9 +43,9 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                 self.view.addGestureRecognizer(longPressGesture)
         }
     
-    func read() -> Stamp? {
-        return realm.objects(Stamp.self).first
-    }
+//    func read() -> Stamp? {
+//        return realm.objects(Stamp.self).first
+//    }
     
     @objc func longPress(_ sender: UILongPressGestureRecognizer){
                if sender.state == .began {
@@ -56,27 +56,15 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                    }
                    StampCollectionView.reloadData()
                    
-//                   let save = Stamp()
-//                          save.stamp = stampImage
-//
-//                          try! realm.write {
-//                              realm.add(save)
-//                          }
-                       let dictionary: [String: Any] =
-                           ["stamps": [["ticketTitle": "算数"],
-                                        ["ticketTitle": "英語"],
-                                        ["ticketTitle": "社会"]]
-                           ]
+                   let parents: Results<Parent> = realm.objects(Parent.self) //ここの2行
+                   let parent = parents[0] //ここの2行は必要に応じて変えてね
 
-                       let task = Stamp(value: dictionary) //Taskモデルのインスタンスの作成
-
-                       //書き込み処理
-                       try! realm.write {
-                           realm.add(task)
-                           print(task)
-                   
-                   
-               }
+                   let children = parent.children
+                   let child = Child()
+                   child.stamp += stampImage
+                   try! realm.write(){
+                       children.append(child)
+                   }
                }
                else if sender.state == .ended {
             }
@@ -101,8 +89,13 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         // 横方向のスペース調整
         let horizontalSpace:CGFloat = 5
 
+        let layout = UICollectionViewFlowLayout()
+            layout.itemSize = CGSize(width: 20, height: 20)
+            collectionView.collectionViewLayout = layout
+        
+        
         //セルのサイズを指定。画面上にセルを3つ表示させたいのであれば、デバイスの横幅を3分割した横幅　- セル間のスペース*2（セル間のスペースが二つあるため）
-        let cellSize:CGFloat = self.view.bounds.width/3 - horizontalSpace*2
+        let cellSize:CGFloat = self.view.bounds.width/5 - horizontalSpace*2
 
         // 正方形で返すためにwidth,heightを同じにする
         return CGSize(width: cellSize, height: cellSize)

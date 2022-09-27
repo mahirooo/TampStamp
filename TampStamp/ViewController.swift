@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let realm = try! Realm()
     var saveItem: Results<Save>!
-    var stampCount: Results<Stamp>!
+//    var stampCount: Results<Stamp>!
     var stampImage:[String] = []
 
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         horizontalTableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier: "customTableView")
         let realm = try! Realm()
         self.saveItem = realm.objects(Save.self)
-        self.stampCount = realm.objects(Stamp.self)
+//        self.stampCount = realm.objects(Stamp.self)
         horizontalTableView.reloadData()
         
         self.horizontalTableView.rowHeight = 230;
@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         print(Save())
-        print(Stamp())
+//        print(Stamp())
         self.horizontalTableView.reloadData()
     }
     

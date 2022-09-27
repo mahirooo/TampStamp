@@ -15,12 +15,12 @@ class Save: Object {
     @objc dynamic var date: String = ""
 }
 
-class Stamp: Object {
-    @objc dynamic var stamp: String = ""
+class Parent: Object {
+    @objc dynamic var stamp:[String] = []
     //Listの定義
-    let stampArray = List<StampArray>()
+    let children = List<Child>()
 }
 
-class StampArray: Object {
-    @objc dynamic var ticketTitle: String = ""
+class Child: Object {
+    @objc dynamic var stamp:[String] = []
 }
