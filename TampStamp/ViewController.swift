@@ -54,6 +54,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.horizontalTableView.reloadData()
         let results = realm.objects(Child.self)
             print(results)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,6 +81,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             // セルの選択を解除
         tableView.deselectRow(at: indexPath, animated: true)
+            
      
             // 別の画面に遷移
             performSegue(withIdentifier: "toNextViewController", sender: saveItem[indexPath.row])

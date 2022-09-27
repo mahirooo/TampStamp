@@ -30,6 +30,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         todoLabel.text = "目標：\(todo)"
         backgroundImageView.image = UIImage(named: card)
         self.StampCollectionView.backgroundColor = UIColor.clear
+        self.tabBarController?.tabBar.isHidden = true;
 //        let stamp: Stamp? = read()
         
         // ロングプレス
