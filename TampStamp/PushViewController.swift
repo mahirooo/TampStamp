@@ -61,7 +61,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
 
                    let children = parent.children
                    let child = Child()
-                   child.stamp += stampImage
+                   child.title += stampImage
                    try! realm.write(){
                        children.append(child)
                    }
