@@ -56,16 +56,17 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                    }
                    StampCollectionView.reloadData()
                    
-                   let parents: Results<Parent> = realm.objects(Parent.self) //ここの2行
-                   let parent = parents[0] //ここの2行は必要に応じて変えてね
-
-                   let children = parent.children
-                   let child = Child()
-                   child.title += stampImage
-                   try! realm.write(){
-                       children.append(child)
+//                   let parent = Parent()
+//                   let children = parent.children
+//                   for img in stampImage {
+//                       let child = Child()
+//                       child.title = img
+//                       children.append(child)
+//                   }
+//                   try! realm.write() {
+//                       realm.add(parent)
+//                   }
                    }
-               }
                else if sender.state == .ended {
             }
         }
@@ -101,6 +102,27 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         return CGSize(width: cellSize, height: cellSize)
     }
     
+    @IBAction func save(){
+        let parent = Parent()
+        let children = parent.children
+        for img in stampImage {
+            let child = Child()
+            child.title = img
+            children.append(child)
+        }
+        try! realm.write() {
+            realm.add(parent)
+        }
+        
+        let alert: UIAlertController = UIAlertController(title: "成功",message: "保存しました",preferredStyle: .alert)
+
+        alert.addAction(
+            UIAlertAction(title: "OK", style: .default) { [weak self] _ in
+                self?.navigationController?.popViewController(animated: true)
+            }
+        )
+        print("保存したよ")
+    }
     
     
     

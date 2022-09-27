@@ -16,11 +16,8 @@ class Save: Object {
 }
 
 class Parent: Object {
-    @objc dynamic var title:[String] = []
-    //Listの定義
     let children = List<Child>()
 }
-
 class Child: Object {
-    @objc dynamic var title:[String] = []
+    @objc dynamic var title: String = ""
 }

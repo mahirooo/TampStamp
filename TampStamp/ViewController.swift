@@ -25,7 +25,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let realm = try! Realm()
     var saveItem: Results<Save>!
-//    var stampCount: Results<Stamp>!
     var stampImage:[String] = []
 
     override func viewDidLoad() {
@@ -52,9 +51,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(Save())
-//        print(Stamp())
         self.horizontalTableView.reloadData()
+        let results = realm.objects(Child.self)
+            print(results)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
