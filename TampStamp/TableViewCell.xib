@@ -24,16 +24,6 @@
                             <constraint firstAttribute="height" constant="184" id="qNw-Kh-0QV"/>
                         </constraints>
                     </imageView>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6wz-mC-xB3">
-                        <rect key="frame" x="24" y="82" width="272" height="146"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UYZ-2D-6on">
-                            <size key="itemSize" width="128" height="128"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                    </collectionView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAg-2Y-mYK">
                         <rect key="frame" x="14" y="31.5" width="152" height="21"/>
                         <constraints>
@@ -54,10 +44,22 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6wz-mC-xB3">
+                        <rect key="frame" x="16" y="79" width="288" height="139"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="288" id="VcU-5A-U77"/>
+                            <constraint firstAttribute="height" constant="139" id="g1h-Re-JSP"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UYZ-2D-6on">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="6wz-mC-xB3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="8MR-EM-D7b"/>
-                    <constraint firstItem="6wz-mC-xB3" firstAttribute="top" secondItem="nAg-2Y-mYK" secondAttribute="bottom" constant="29.5" id="Gqs-kk-Kip"/>
                     <constraint firstItem="cJu-Qy-6pm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-63" id="ILU-bJ-ZZc"/>
                     <constraint firstAttribute="trailing" secondItem="aXp-Np-GD6" secondAttribute="trailing" id="Oxj-1r-KqV"/>
                     <constraint firstItem="aXp-Np-GD6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="QBT-GF-PdD"/>
@@ -68,7 +70,7 @@
                     <constraint firstItem="aXp-Np-GD6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bnz-eV-qEu"/>
                     <constraint firstItem="nAg-2Y-mYK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-63" id="cpf-2I-gB9"/>
                     <constraint firstItem="cJu-Qy-6pm" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" constant="62" id="oFZ-BK-EAf"/>
-                    <constraint firstItem="6wz-mC-xB3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="50" id="qTi-IK-qRw"/>
+                    <constraint firstItem="6wz-mC-xB3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="43.5" id="qTi-IK-qRw"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -15,7 +15,8 @@ class CollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundImageView.layer.cornerRadius = 12   
+        backgroundImageView.layer.cornerRadius = 12
+        
         // Initialization code
     }
 

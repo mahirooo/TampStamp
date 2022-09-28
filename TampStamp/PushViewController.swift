@@ -32,6 +32,11 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         backgroundImageView.image = UIImage(named: card)
         self.StampCollectionView.backgroundColor = UIColor.clear
         self.tabBarController?.tabBar.isHidden = true;
+//        let layout = UICollectionViewFlowLayout()
+//                //
+//                layout.minimumLineSpacing = 30
+//                //
+//                StampCollectionView.collectionViewLayout = layout
 //        let stamp: Stamp? = read()
         
         // ロングプレス
@@ -103,7 +108,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         let horizontalSpace:CGFloat = 5
 
         let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: 20, height: 20)
+            layout.itemSize = CGSize(width: 10, height: 10)
             collectionView.collectionViewLayout = layout
         
         

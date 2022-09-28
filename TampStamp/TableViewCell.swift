@@ -37,6 +37,12 @@ class TableViewCell: UITableViewCell, UICollectionViewDelegate{
         collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.id)
         collectionView.delegate = self
                 collectionView.dataSource = self
+        self.collectionView.backgroundColor = UIColor.clear
+        let layout = UICollectionViewFlowLayout()
+                //
+                layout.minimumLineSpacing = 16
+                //
+                collectionView.collectionViewLayout = layout
 //                collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.id)
             }
 }
@@ -61,8 +67,20 @@ extension TableViewCell: UICollectionViewDataSource {
 extension TableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 50)
+        return CGSize(width: 44.9, height: 44.9)
     }
     
+}
+extension ViewController: UICollectionViewDelegateFlowLayout {
+
+    // セルサイズを指定する
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        // 横方向のサイズを調整
+        let cellSizeWidth:CGFloat = self.view.frame.width/15
+    
+        // widthとheightのサイズを返す
+        return CGSize(width: cellSizeWidth, height: cellWidth)
+    }
 }
 
