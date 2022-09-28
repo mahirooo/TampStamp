@@ -118,11 +118,14 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         let alert: UIAlertController = UIAlertController(title: "成功",message: "保存しました",preferredStyle: .alert)
 
         alert.addAction(
-            UIAlertAction(title: "OK", style: .default) { [weak self] _ in
-                self?.navigationController?.popViewController(animated: true)
-            }
-        )
-        print("保存したよ")
+            UIAlertAction(title: "OK",
+                          style: .default,
+                          handler: { action in print("保存したみょ")
+                              self.navigationController?.popViewController(animated: true)
+            })
+            )
+        present(alert, animated: true, completion: nil)
+    
     }
     
     

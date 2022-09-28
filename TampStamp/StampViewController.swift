@@ -8,13 +8,12 @@
 import UIKit
 import RealmSwift
 
-class StampViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class StampViewController: UIViewController, UITextFieldDelegate{
     
     
     @IBOutlet var cardDesign:UIImageView!
     @IBOutlet var todoTextField: UITextField!
     @IBOutlet var rewardTextField: UITextField!
-    @IBOutlet var datePickerView: UIPickerView!
     
     
     let imageName = ["selectBlue","selectPink1","selectPink2"]
@@ -36,28 +35,17 @@ class StampViewController: UIViewController, UITextFieldDelegate, UIPickerViewDe
         // Do any additional setup after loading the view.
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func read() -> Save? {
         return realm.objects(Save.self).first
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
             return 1
-        }
-        
-        // PickerView一つあたりの行の数
-        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            
-            if pickerView == datePickerView {
-                return dateArray.count
-            }
-            return 0
-        }
-
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            if pickerView == datePickerView {
-                return dateArray[row]
-            }
-            return nil
         }
 
     
