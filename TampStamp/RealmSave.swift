@@ -13,11 +13,9 @@ class Save: Object {
     @objc dynamic var todo: String = ""
     @objc dynamic var reward: String = ""
     @objc dynamic var date: String = ""
-}
-
-class Parent: Object {
     let children = List<Child>()
 }
+
 class Child: Object {
     @objc dynamic var title: String = ""
 }

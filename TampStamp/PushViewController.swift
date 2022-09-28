@@ -14,6 +14,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
     var todo = String()
     var reward = String()
     var card = String()
+    var saveData: Save!
     
     let realm = try! Realm()
     
@@ -43,6 +44,16 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
                 // Viewに追加.
                 self.view.addGestureRecognizer(longPressGesture)
         }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let children = saveData.children
+        
+        for child in children {
+            stampImage.append(child.title)
+        }
+        StampCollectionView.reloadData()
+    }
     
 //    func read() -> Stamp? {
 //        return realm.objects(Stamp.self).first
@@ -104,17 +115,23 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
     }
     
     @IBAction func save(){
-        let parent = Parent()
-        let children = parent.children
+//        let parent = Parent()
+        let children = saveData.children
+        try! realm.write() {
+            children.removeAll()
+        }
         for img in stampImage {
             let child = Child()
             child.title = img
-            children.append(child)
+            try! realm.write() {
+                children.append(child)
+            }
+//            children.append(child)
         }
-        try! realm.write() {
-            realm.add(parent)
-        }
-        
+//        try! realm.write() {
+//            realm.add(saveData)
+//        }
+//
         let alert: UIAlertController = UIAlertController(title: "成功",message: "保存しました",preferredStyle: .alert)
 
         alert.addAction(

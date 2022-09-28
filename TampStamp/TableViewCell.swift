@@ -15,6 +15,8 @@ class TableViewCell: UITableViewCell, UICollectionViewDelegate{
     @IBOutlet var backgroundImageView: UIImageView!
 //    var stampCount: Results<Stamp>!
     var stampImage:[String] = []
+    var saveData: Save!
+    let realm = try! Realm()
     
     static var toString: String {
         return String(describing: self)
@@ -26,50 +28,41 @@ class TableViewCell: UITableViewCell, UICollectionViewDelegate{
     private var models = [Model]()
     
     
-    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet public weak var collectionView: UICollectionView!
 
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//        collectionView.delegate = self
-//                collectionView.dataSource = self
+        collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.id)
+        collectionView.delegate = self
+                collectionView.dataSource = self
 //                collectionView.register(MyCollectionViewCell.nib(), forCellWithReuseIdentifier: MyCollectionViewCell.id)
             }
-//    func configure(with models: [Model]) {
-//        self.models = models
-//        collectionView.reloadData()
-//    }
-//    let realm = try! Realm()
+}
+
+extension TableViewCell: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return saveData.children.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.id, for: indexPath) as! MyCollectionViewCell
+        let imageView = cell.viewWithTag(2) as! UIImageView
+        let cellImage = UIImage(named: saveData.children[indexPath.row].title)
+                // UIImageをUIImageViewのimageとして設定
+                imageView.image = cellImage
+        return cell
+    }
     
 }
 
-//extension TableViewCell: UICollectionViewDataSource {
-//    
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        let stampData = realm.objects(Stamp.self)
-//        
-//        return stampData.count
-//    }
-//    
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyCollectionViewCell.id, for: indexPath) as! MyCollectionViewCell
-//        let imageView = cell.contentView.viewWithTag(2) as! UIImageView
-//        let cellImage = UIImage(named: stampImage[indexPath.row])
-//                // UIImageをUIImageViewのimageとして設定
-//                imageView.image = cellImage
-//                return cell
-//        return cell
-//    }
-//    
-//}
-//
-//extension TableViewCell: UICollectionViewDelegateFlowLayout {
-//    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 250, height: 250)
-//    }
-//    
-//}
+extension TableViewCell: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 50, height: 50)
+    }
+    
+}
 

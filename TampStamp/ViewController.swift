@@ -51,11 +51,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.horizontalTableView.reloadData()
         let results = realm.objects(Child.self)
             print(results)
         self.tabBarController?.tabBar.isHidden = false
+        self.horizontalTableView.reloadData()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.horizontalTableView.reloadData()
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let userData = realm.objects(Save.self)
@@ -71,8 +78,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.layer.masksToBounds = false
         cell.rewardLabel.text = "ご褒美：\(save.reward)"
         cell.todoLabel.text = "目標：\(save.todo)"
-        
         cell.backgroundImageView.image = UIImage(named: save.card)
+        cell.saveData = save
+        cell.collectionView.reloadData()
         
         return cell
     }
@@ -95,6 +103,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             nextVC.todo = item.todo
             nextVC.reward = item.reward
         nextVC.card = item.card
+        nextVC.saveData = item
         }
 
 }
