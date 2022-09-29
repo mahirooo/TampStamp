@@ -27,7 +27,7 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
             super.viewDidLoad()
         StampCollectionView.delegate = self
         StampCollectionView.dataSource = self
-        rewardLabel.text = "ご褒美：\(reward)"
+        rewardLabel.text = reward
         todoLabel.text = "目標：\(todo)"
         backgroundImageView.image = UIImage(named: card)
         self.StampCollectionView.backgroundColor = UIColor.clear

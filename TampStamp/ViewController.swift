@@ -76,7 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.backgroundColor = UIColor.white
         cell.layer.cornerRadius = 30
         cell.layer.masksToBounds = false
-        cell.rewardLabel.text = "ご褒美：\(save.reward)"
+        cell.rewardLabel.text = save.reward
         cell.todoLabel.text = "目標：\(save.todo)"
         cell.backgroundImageView.image = UIImage(named: save.card)
         cell.saveData = save

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         migrationBlock: nil,
         deleteRealmIfMigrationNeeded: true)
         Realm.Configuration.defaultConfiguration = config
-        UITabBar.appearance().tintColor = UIColor(red: 0.945, green: 0.356, blue: 0.411, alpha: 1.0)
+//        UITabBar.appearance().tintColor = UIColor(red: 0.945, green: 0.356, blue: 0.411, alpha: 1.0)
         return true
     }
 
