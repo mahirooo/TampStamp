@@ -32,6 +32,14 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
         backgroundImageView.image = UIImage(named: card)
         self.StampCollectionView.backgroundColor = UIColor.clear
         self.tabBarController?.tabBar.isHidden = true;
+        
+        if card == "selectPink2"{
+            rewardLabel.textColor = UIColor(red: 0.945, green: 0.356, blue: 0.411, alpha: 1.0)
+        }else if card == "selectPink1"{
+            rewardLabel.textColor = UIColor(red: 0.752, green: 0.423, blue: 0.517, alpha: 1.0)
+        }else if card == "selectBlue"{
+            rewardLabel.textColor = UIColor(red: 0.207, green: 0.360, blue: 0.490, alpha: 1.0)
+        }
 //        let layout = UICollectionViewFlowLayout()
 //                //
 //                layout.minimumLineSpacing = 30
@@ -67,10 +75,24 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
     @objc func longPress(_ sender: UILongPressGestureRecognizer){
                if sender.state == .began {
                    // 開始は認知される
+                   if card == "selectBlue"{
                    stampImage += ["stampBlue"]
                    if stampImage.count > 10{
                        stampImage = ["stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue","stampBlue"]
                    }
+                   }else if card == "selectPink1"{
+                   stampImage += ["stampPink1"]
+                   if stampImage.count > 10{
+                       stampImage = ["stampPink1","stampPink1","stampPink1","stampPink1","stampPink1","stampPink1","stampPink1","stampPink1","stampPink1","stampPink1"]
+                   }
+                   }else if card == "stampPink2"{
+                       stampImage += ["stampPink2"]
+                       if stampImage.count > 10{
+                           stampImage = ["stampPink2","stampPink2","stampPink2","stampPink2","stampPink2","stampPink2","stampPink2","stampPink2","stampPink2","stampPink2"]
+                       }
+                   }
+                   
+                   
                    StampCollectionView.reloadData()
                    
 //                   let parent = Parent()
@@ -137,7 +159,8 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
 //            realm.add(saveData)
 //        }
 //
-        let alert: UIAlertController = UIAlertController(title: "成功",message: "保存しました",preferredStyle: .alert)
+        if children.count < 6{
+        let alert: UIAlertController = UIAlertController(title: "スタンプを保存",message: "これからも頑張ろう🔥🔥",preferredStyle: .alert)
 
         alert.addAction(
             UIAlertAction(title: "OK",
@@ -147,7 +170,32 @@ class PushViewController: UIViewController, UIGestureRecognizerDelegate, UIColle
             })
             )
         present(alert, animated: true, completion: nil)
-    
+        }else if children.count < 9 && children.count > 5{
+            let alert: UIAlertController = UIAlertController(title: "スタンプを保存",message: "目標達成まであと少し🥺",preferredStyle: .alert)
+
+            alert.addAction(
+                UIAlertAction(title: "OK",
+                              style: .default,
+                              handler: { action in print("保存したみょ")
+                                  self.navigationController?.popViewController(animated: true)
+                })
+                )
+            present(alert, animated: true, completion: nil)
+        }
+        else{
+            let alert: UIAlertController = UIAlertController(title: "🥳目標達成🥳",message: "習慣化できたね！おめでとう🎉",preferredStyle: .alert)
+
+            alert.addAction(
+                UIAlertAction(title: "閉じる",
+                              style: .default,
+                              handler: { action in print("保存したみょ")
+                                  self.navigationController?.popViewController(animated: true)
+                })
+                )
+            present(alert, animated: true, completion: nil)
+        }
+        
+        
     }
     
     

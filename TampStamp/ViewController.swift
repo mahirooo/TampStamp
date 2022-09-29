@@ -80,6 +80,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.todoLabel.text = "目標：\(save.todo)"
         cell.backgroundImageView.image = UIImage(named: save.card)
         cell.saveData = save
+        if save.card == "selectPink2"{
+            cell.rewardLabel.textColor = UIColor(red: 0.945, green: 0.356, blue: 0.411, alpha: 1.0)
+        }else if save.card == "selectPink1"{
+            cell.rewardLabel.textColor = UIColor(red: 0.752, green: 0.423, blue: 0.517, alpha: 1.0)
+        }else if save.card == "selectBlue"{
+            cell.rewardLabel.textColor = UIColor(red: 0.207, green: 0.360, blue: 0.490, alpha: 1.0)
+        }
+        
         cell.collectionView.reloadData()
         
         return cell
