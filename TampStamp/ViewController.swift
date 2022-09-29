@@ -95,6 +95,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             performSegue(withIdentifier: "toNextViewController", sender: saveItem[indexPath.row])
         print("選択しました: \(indexPath.row)")
         }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                try! realm.write {
+                    let item = saveItem[indexPath.row]
+                    realm.delete(item)
+                }
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
